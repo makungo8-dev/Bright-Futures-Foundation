@@ -1,0 +1,487 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Poppins:700,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
+
+/* Color Palette */
+:root {
+  --gold: #F4C430;         /* Optimism, youth */
+  --teal: #00796B;         /* Trust, mentorship */
+  --cream: #FFF8E1;        /* Clean, welcoming */
+  --coral: #FF6F61;        /* CTA, energy */
+  --charcoal: #333333;     /* Text */
+  --shadow: rgba(0,0,0,0.07);
+}
+
+/* Reset & Base */
+body {
+  background: var(--cream) url('Images/Image Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--charcoal);
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* Header & Navigation */
+header {
+  background: linear-gradient(90deg, var(--gold) 60%, var(--coral) 100%);
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 1rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.08rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+nav a:hover {
+  background: var(--teal);
+  color: var(--cream);
+  transform: scale(1.08);
+}
+
+nav a.active {
+  background: var(--teal);
+  color: var(--gold);
+  font-weight: 700;
+  border-bottom: 3px solid var(--gold);
+}
+
+/* Heading Section */
+#name {
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+
+#name h1 {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--teal);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 2.3rem;
+  letter-spacing: 2px;
+}
+
+/* Summary Section */
+.summary {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--cream);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px var(--shadow);
+  padding: 2rem 1.5rem;
+  color: var(--charcoal);
+  font-size: 1.08rem;
+}
+
+.summary p {
+  margin-bottom: 1rem;
+}
+
+.summary ul {
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0;
+  color: var(--charcoal);
+}
+
+.summary li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+.summary .highlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.summary em {
+  color: var(--gold);
+  font-style: italic;
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+
+/* Buttons Section */
+#buttons {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#buttons h3 {
+  margin: 20px 0;
+}
+
+#buttons a {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--gold) 70%, var(--coral) 100%);
+  color: var(--charcoal);
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px var(--shadow);
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+#buttons a:hover {
+  background: var(--teal);
+  color: var(--cream);
+  box-shadow: 0 4px 16px var(--shadow);
+  transform: scale(1.06);
+}
+
+/* Slogan Section */
+.slogan {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cream);
+  background: linear-gradient(90deg, var(--teal) 60%, var(--gold) 100%);
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  display: inline-block;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Footer */
+footer {
+  background: var(--teal);
+  color: var(--cream);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 8px var(--shadow);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  padding: 2rem 0 1rem 0;
+  gap: 2rem;
+}
+
+.hero-image img {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px var(--shadow);
+  background: var(--gold);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cta {
+  background: linear-gradient(90deg, var(--gold) 70%, var(--coral) 100%);
+  color: var(--charcoal);
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px var(--shadow);
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background: var(--teal);
+  color: var(--cream);
+  box-shadow: 0 4px 16px var(--shadow);
+  transform: scale(1.06);
+}
+
+/* Foundation Section */
+.foundation-highlight {
+  text-align: center;
+  background: linear-gradient(90deg, var(--gold) 70%, var(--cream) 100%);
+  color: var(--teal);
+  padding: 0.3em 0.7em;
+  border-radius: 12px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  box-shadow: 0 2px 8px var(--shadow);
+  border-bottom: 4px solid var(--gold);
+  display: inline-block;
+  
+}
+
+.about-lead {
+  font-size: 1.15rem;
+  color: var(--charcoal);
+  margin: 1.2rem auto 2rem auto;
+  max-width: 500px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.about-cards {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.about-card {
+  background: var(--cream);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px var(--shadow);
+  padding: 1.2rem 1rem;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  flex: 1 1 180px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 6px 24px var(--shadow);
+}
+
+.about-icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-card h3 {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--teal);
+  font-size: 1.08rem;
+  margin-bottom: 0.3rem;
+}
+
+.about-card p {
+  font-size: 1rem;
+  color: var(--charcoal);
+}
+
+.about-promise {
+  margin-top: 1.5rem;
+  font-size: 1.08rem;
+  color: var(--teal);
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+.about-promise em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.08rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Volunteer Section */
+.volunteer-main {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #f5f7fa; /* Subtle light grey for modern appeal */
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.volunteer-form, .contact-form {
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.volunteer-form label, .contact-form input, .contact-form textarea {
+  font-size: 1rem;
+}
+
+.events-list {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.event-card img {
+  width: 220px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(244,196,48,0.18);
+  background: var(--gold);
+}
+
+/* Donation Section */
+.donate-main {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.donate-main img {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(244,196,48,0.18);
+  margin-bottom: 1rem;
+}
+
+.donate-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.donate-form label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.donate-form input[type="number"] {
+  width: 80%;
+  padding: 0.7em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+.donate-form button {
+  background: linear-gradient(90deg, #F4C430 70%, #FF6F61 100%);
+  color: #00796B;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  padding: 0.85rem 2rem;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 8px rgba(244,196,48,0.18);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.donate-form button:hover {
+  background: #00796B;
+  color: #fff;
+  transform: scale(1.06);
+}
+
+.donate-main .thank-you {
+  color: #00796B;
+  font-size: 1.1em;
+  margin-top: 1em;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  #name h1 {
+    font-size: 1.5rem;
+  }
+  .summary {
+    padding: 1.2rem 0.7rem;
+    font-size: 1rem;
+  }
+  #buttons a {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    margin: 0.5rem 0.2rem;
+  }
+  .slogan {
+    font-size: 1.1rem;
+    padding: 0.7rem 1rem;
+  }
+  .hero {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .hero-image img {
+    width: 95vw;
+    height: 180px;
+  }
+  
+  .about-cards {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .about-card {
+    max-width: 100%;
+    min-width: 0;
+    padding: 1rem 0.5rem;
+  }
+  .volunteer-main {
+    padding: 1rem;
+  }
+  .event-card img {
+    width: 100%;
+    height: 100px;
+  }
+  .donate-main {
+    padding: 1rem;
+  }
+  .donate-main img {
+    max-width: 100%;
+  }
+}

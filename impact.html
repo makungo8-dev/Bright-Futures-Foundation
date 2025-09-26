@@ -2,45 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bright Futures Impact And Stories</title>
+  <title>Impact & Stories | Bright Futures Foundation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <nav>
-      <a href="index.html">BRIGHT FUTURES</a> |
-      <a href="about.html">ABOUT US</a> |
-      <a href="programs.html">PROGRAMS</a>	|
-	  <a href="volunteer.html">VOLUNTEER</a>	|
-	  <a href="impact.html"><strong>IMPACT AND STORIES</strong></a>
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT US</a>
+      <a href="programs.html">PROGRAMS</a>
+      <a href="volunteer.html">GET INVOLVED</a>
+      <a href="impact.html" class="active">IMPACT & STORIES</a>
     </nav>
   </header>
 
-  <!-- Heading Name -->
-  <section id="name">
-    <h1>IMPACT AND STORIES</h1>
-  </section>
-  
-    <!-- Our Impact -->
-  <section id="impact">
-    <h2>OUR IMPACT</h2>
-    <p>pictures and description of impacts made.</p>
-  </section>
-  
-      <!-- Success Stories -->
-  <section id="stories">
-    <h2>SUCCESS STORIES</h2>
-    <p>pictures and description of impacts made.</p>
+  <section id="name" style="text-align:center;">
+  <h1 class="foundation-highlight">Impact and Stories</h1>
   </section>
 
-  <!-- Paragraph -->
-   <p>A paragraph to sum everything up</p>
-   
+  <main>
+    <section class="impact-main">
+      <div class="impact-section" style="display:flex;flex-direction:column;gap:2rem;">
+        <div class="impact-row" style="display:flex;align-items:flex-start;gap:2rem;">
+          <div style="flex:1;">
+            <h3>Our Impact</h3>
+            <p>See how our programs have changed lives and communities.</p>
+          </div>
+          <img src="images/impact-placeholder.jpg" alt="Impact" style="width:320px;height:160px;object-fit:cover;border-radius:16px;background:var(--gold);box-shadow:0 2px 12px var(--shadow);">
+        </div>
+        <div class="impact-row" style="display:flex;align-items:flex-start;gap:2rem;">
+          <div style="flex:1;">
+            <h3>Success Stories</h3>
+            <p>Read inspiring stories from our youth and volunteers.</p>
+          </div>
+          <img src="images/story-placeholder.jpg" alt="Success Story" style="width:320px;height:160px;object-fit:cover;border-radius:16px;background:var(--gold);box-shadow:0 2px 12px var(--shadow);">
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- Promise Section -->
+    <section class="about-promise">
+      <p class="slogan">One child, one community, one bright future.</p>
+    </section>
+  </main>
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Bright Futures</p>
+    <p>&copy; 2025 Bright Futures Foundation</p>
   </footer>
-
 </body>
 </html>

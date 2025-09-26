@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Bright Futures About Us</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -10,34 +11,58 @@
   <header>
     <nav>
       <a href="index.html">BRIGHT FUTURES</a> |
-      <a href="about.html"><strong>ABOUT US</strong></a> |
-      <a href="programs.html">PROGRAMS</a>
-	  <a href="volunteer.html">VOLUNTEER</a>
+      <a href="about.html" class="active"><strong>ABOUT US</strong></a> |
+      <a href="programs.html">PROGRAMS</a>|
+	  <a href="volunteer.html">VOLUNTEER</a>|
 	  <a href="impact.html">IMPACT AND STORIES</a>
     </nav>
   </header>
   
-  <!-- Heading Name -->
-  <section id="name">
-    <h1>ABOUT US</h1>
+  <section id="name" style="text-align:center;">
+  <h1 class="foundation-highlight">About Us</h1>
   </section>
   
   <!-- Our History -->
   <section id="history">
-    <h2>OUR HISTORY</h2>
-   <p>The organization's history.</p>
+    <div style="display: flex; align-items: flex-start; gap: 20px;">
+      <div style="flex: 1;">
+        <h2>OUR HISTORY</h2>
+      </div>
+      <div style="flex: 2;">
+        <p>
+          Founded in 2015 by university graduates in Cape Town, Bright Futures Foundation is a fictional but powerful symbol of hope. It uplifts youth from disadvantaged communities through:
+        </p>
+        <ul style="list-style:none; padding-left:0; font-size:1.1em;">
+          <li>📚 Education programs</li>
+          <li>🧭 Mentorship initiatives</li>
+          <li>🏘️ Community development (libraries, workshops, school fee support)</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- mission -->
   <section id="mission">
-    <h2>OUR MISSION</h2>
-     <p>The organization's mission.</p>
+    <div style="display: flex; align-items: flex-start; gap: 20px;">
+      <div style="flex: 1;">
+        <h2>OUR MISSION</h2>
+      </div>
+      <div style="flex: 2;">
+        <p>To help young people succeed by giving them education, support, and guidance.</p>
+      </div>
+    </div>
   </section>
   
     <!-- Team Slides -->
-  <section id="team">
-    <h2>OUR TEAM</h2>
-     <p>A slideshow of the team</p>
+  <section id="Team">
+    <div style="display: flex; align-items: flex-start; gap: 20px;">
+      <div style="flex: 1;">
+        <h2>OUR TEAM</h2>
+      </div>
+      <div style="flex: 2;">
+        <img src="team-photo.jpg" alt="Bright Futures Team" style="max-width:100%; height:auto;">
+      </div>
+    </div>
   </section>
   
   <!-- Description -->
@@ -45,10 +70,15 @@
      <p>A paragraph description about us</p>
   </section>
 
+    <!-- Promise Section -->
+    <section class="about-promise">
+      <p class="slogan">One child, one community, one bright future.</p>
+    </section>
+  </main>
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Bright Futures</p>
+    <p>&copy; 2025 Bright Futures Foundation</p>
   </footer>
-
 </body>
 </html>

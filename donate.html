@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bright Futures</title>
+  <title>Donate | Bright Futures Foundation</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <nav>
@@ -17,26 +18,34 @@
     </nav>
   </header>
   
-    <!-- Heading Name -->
-  <section id="name">
-    <h1>DONATE</h1>
+  <section id="name" style="text-align:center;">
+  <h1 class="foundation-highlight">Donate</h1>
   </section>
   
-    <!-- Picture -->
-   <p>A picture and short encouragement words</p>
+  <main>
+    <!-- Donate Main Section -->
+    <section class="donate-main">
+      <img src="images/donate-placeholder.jpg" alt="Donate to Bright Futures">
+      <p>Your support helps us change lives. Every donation goes directly to education, mentorship, and community projects.</p>
+      <form class="donate-form">
+        <label for="amount">Donation Amount (R)</label>
+        <input type="number" id="amount" name="amount" min="1" required placeholder="Enter amount">
+        <button type="submit">Donate Now</button>
+      </form>
+      <div class="thank-you">
+        Thank you for your generosity!
+      </div>
+    </section>
 
-  <!-- Donate Now -->
-  <section id="donate">
-    <h2>DONATION AMOUNT</h2>
-    <p>R</p>
-	<a href="#">Submit</a>
-	<p>Short thank you words</p>
-  </section>
+    <!-- Promise Section -->
+    <section class="about-promise" style="text-align:center;">
+      <p class="slogan">One child, one community, one bright future.</p>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Bright Futures</p>
+    <p>&copy; 2025 Bright Futures Foundation</p>
   </footer>
-
 </body>
 </html>
