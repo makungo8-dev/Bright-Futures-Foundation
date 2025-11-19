@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
   <title>Get Involved | Bright Futures Foundation</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
   <header>
@@ -19,43 +19,124 @@
   
   <section id="name" style="text-align:center;">
     <h1 class="foundation-highlight">Volunteer & Get Involved</h1>
+    <h2 class="page-subtitle">Join our team — help build brighter futures</h2>
   </section>
 
   <main>
-    <section class="volunteer-main">
-      <img src="images/volunteer-placeholder.jpg" alt="Volunteer" style="width:100%;max-width:500px;border-radius:18px;box-shadow:0 4px 24px var(--shadow);background:var(--gold);margin-bottom:1rem;">
-      
+    <div class="content-panel volunteer-main">
+      <div class="hero-image" style="text-align:center;margin-bottom:2rem;">  
+          <img src="images/volunteer.jpg" alt="Bright Futures Foundation">
+      </div>
       <h3>Volunteer Sign Up</h3>
-      <form class="volunteer-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+      <form id="volunteer-form" class="volunteer-form" novalidate>
+        <label for="vname">Name</label>
+        <input id="vname" name="name" type="text" placeholder="Your full name" required>
+
+        <label for="vemail">Email</label>
+        <input id="vemail" name="email" type="email" placeholder="you@example.com" required>
+
         <button type="submit" class="cta">Sign Up</button>
       </form>
-      
+
       <h3>Upcoming Events</h3>
       <div class="events-list">
-        <div class="event-card"><img src="images/event1-placeholder.jpg" alt="Event 1"></div>
-        <div class="event-card"><img src="images/event2-placeholder.jpg" alt="Event 2"></div>
+        <div class="event-card"><img src="Images/event1.jpg" alt="Event 1"></div>
+        <div class="event-card"><img src="Images/event2.jpg" alt="Event 2"></div>
       </div>
-      
+
       <h3>Contact Us</h3>
-      <form class="contact-form">
+      <form class="contact-form" action="#" aria-label="Contact form">
         <input type="text" placeholder="Name" required>
         <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message" required rows="4"></textarea>
+        <textarea placeholder="Message" rows="4" required></textarea>
         <button type="submit" class="cta">Send</button>
       </form>
-    </section>
-    
-    <section class="about-promise" style="text-align:center;">
-      <p class="slogan">One child, one community, one bright future.</p>
-    </section>
+    </div>
   </main>
+
+  <section class="about-promise" style="text-align:center;">
+    <p class="slogan">One child, one community, one bright future.</p>
+  </section>
 
   <footer>
     <p>&copy; 2025 Bright Futures Foundation</p>
   </footer>
+
+  <!-- Success animation overlay (shared for both forms) -->
+  <div id="signup-success" aria-hidden="true">
+    <div class="success-card" role="status" aria-live="polite">
+      <div class="success-circle">
+        <!-- SVG checkmark -->
+        <svg class="checkmark" viewBox="0 0 52 52" aria-hidden="true">
+          <circle cx="26" cy="26" r="25" fill="none"></circle>
+          <path class="check" fill="none" d="M14 27 l8 8 l16 -16"></path>
+        </svg>
+      </div>
+      <div id="success-text" class="success-text">Successfully signed up</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const vForm = document.getElementById('volunteer-form');
+      const cForm = document.getElementById('contact-form') || document.querySelector('.contact-form');
+      const overlay = document.getElementById('signup-success');
+      const successTextEl = document.getElementById('success-text');
+
+      function validEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function showSuccess(message, form) {
+        successTextEl.textContent = message;
+        overlay.setAttribute('aria-hidden','false');
+        overlay.classList.add('show');
+
+        setTimeout(() => {
+          overlay.classList.remove('show');
+          overlay.setAttribute('aria-hidden','true');
+          if (form) form.reset();
+        }, 2000);
+      }
+
+      if (vForm) {
+        vForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = vForm.querySelector('#vname')?.value || '';
+          const email = vForm.querySelector('#vemail')?.value || '';
+
+          if (!name.trim() || !validEmail(email.trim())) {
+            vForm.classList.remove('invalid');
+            void vForm.offsetWidth;
+            vForm.classList.add('invalid');
+            return;
+          }
+
+          showSuccess('Successfully signed up', vForm);
+        });
+      }
+
+      if (cForm) {
+        // ensure contact form has an id we can use
+        if (!cForm.id) cForm.id = 'contact-form';
+
+        cForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = cForm.querySelector('input[type="text"]')?.value || '';
+          const email = cForm.querySelector('input[type="email"]')?.value || '';
+          const msg = cForm.querySelector('textarea')?.value || '';
+
+          if (!name.trim() || !validEmail(email.trim()) || !msg.trim()) {
+            cForm.classList.remove('invalid');
+            void cForm.offsetWidth;
+            cForm.classList.add('invalid');
+            return;
+          }
+
+          showSuccess('Message sent successfully', cForm);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

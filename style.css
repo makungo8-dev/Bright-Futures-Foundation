@@ -12,15 +12,204 @@
   --shadow: rgba(0,0,0,0.07);
 }
 
+/* --- Responsive & utility styles --- */
+
+/* Fluid typography */
+:root{
+  --max-width:1100px;
+  --page-pad:1.6rem;
+  --gap:1.25rem;
+}
+
+/* Container used across pages for readable white panel */
+.content-panel {
+  background: #ffffff;
+  color: var(--charcoal, #333);
+  border-radius: 18px;
+  padding: calc(var(--page-pad) * 1.1);
+  max-width: var(--max-width);
+  margin: 1.6rem auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  box-sizing: border-box;
+}
+
+/* layout helpers */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+  box-sizing: border-box;
+}
+
+/* responsive rows / columns */
+.row {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.col {
+  flex: 1 1 280px;
+  min-width: 220px;
+  box-sizing: border-box;
+}
+
+/* hero thumbnail (consistent size) */
+.hero-thumb {
+  width: 340px;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+/* header / nav */
+header {
+  background: linear-gradient(90deg,#f7b733,#fc4a1a);
+  padding: 0.6rem 0;
+}
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--page-pad);
+  gap:1rem;
+}
+.nav .brand { font-weight:700; color:#004d40; }
+.nav-links {
+  display:flex;
+  gap:1.25rem;
+  align-items:center;
+}
+.nav-links a { color:#103; font-weight:600; text-decoration:none; padding:0.6rem 0.8rem; border-radius:8px; }
+.nav-links a.active, .nav-links a:hover { background: rgba(0,0,0,0.06); }
+
+/* mobile nav toggle */
+.nav-toggle {
+  display:none;
+  background:transparent;
+  border:0;
+  font-size:1.05rem;
+  padding:0.5rem;
+  cursor:pointer;
+}
+@media (max-width:900px){
+  .nav-links { display:none; position:absolute; top:64px; left:0; right:0; background:rgba(255,255,255,0.98); flex-direction:column; gap:0; padding:0.5rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+  .nav-links.show { display:flex; }
+  .nav-toggle { display:block; }
+}
+
+/* small screen tweaks */
+@media (max-width:700px){
+  :root{ --page-pad:1rem; }
+  .hero-thumb { width:95%; height:180px; }
+  .content-panel { margin:1rem; padding:1rem; border-radius:12px; }
+  .col { flex-basis:100%; }
+}
+
+/* skip link for accessibility */
+.skip-link {
+  position: absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus {
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:0.5rem 0.75rem;
+  background:#fff;
+  border-radius:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+  z-index:1200;
+}
+
+/* scroll-to-top button */
+#scrollTopBtn {
+  position:fixed;
+  right:20px;
+  bottom:22px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#F4C430,#FF6F61);
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  cursor:pointer;
+  border:none;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .22s, transform .22s;
+  z-index:1200;
+}
+#scrollTopBtn.show { opacity:1; transform:translateY(0); }
+
+/* image lazy loading placeholder */
+[data-lazy] { background:linear-gradient(90deg,#eee,#f7f7f7); }
+
+/* focus visible */
+:focus { outline: 3px solid rgba(21,101,192,0.12); outline-offset:3px; }
+
+/* Keep existing form success styles and other rules earlier in file */
+
 /* Reset & Base */
 body {
-  background: var(--cream) url('Images/Image Background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--charcoal);
+  /* global readable text color */
+  color: #333333;               /* change this if you prefer a different global text color */
   font-family: 'Open Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-size: 1rem;
+
+  /* site background image (use exact path and folder name) */
+  background: url('Images/Image Background.jpg') no-repeat center top;
+  background-size: cover;
+  background-attachment: scroll; /* avoid fixed behaviour that crops on small screens */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings and link contrast */
+h1, h2, h3 {
+  color: var(--teal); /* keep headings consistent with your palette */
+  margin: 0 0 0.6rem 0;
+}
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+a:hover { color: var(--coral); }
+
+/* Slightly softer variant if you prefer */
+.content-panel--soft {
+  background: rgba(255,255,255,0.96);
+}
+
+/* Ensure page-specific main sections use white panel look */
+.hero,
+.about-main,
+.programs-main,
+.volunteer-main,
+.donate-main,
+.impact-main {
+  background: transparent; /* keep these transparent so the wrapper .content-panel controls the panel */
+}
+
+/* If you previously used section-specific backgrounds, remove or override them */
+.hero .hero-content,
+.about-main .content,
+.donate-main .content,
+.volunteer-main .content {
+  background: transparent;
 }
 
 /* Header & Navigation */
@@ -35,7 +224,7 @@ nav {
 }
 
 nav a {
-  color: var(--charcoal);
+  color: var( --cream: #FFF8E1; );
   text-decoration: none;
   font-weight: 600;
   margin: 0 1rem;
@@ -83,7 +272,7 @@ nav a.active {
   border-radius: 16px;
   box-shadow: 0 2px 12px var(--shadow);
   padding: 2rem 1.5rem;
-  color: var(--charcoal);
+  color: var( --cream: #FFF8E1; );
   font-size: 1.08rem;
 }
 
@@ -94,7 +283,7 @@ nav a.active {
 .summary ul {
   margin: 1rem 0 1rem 1.5rem;
   padding: 0;
-  color: var(--charcoal);
+  color: var( --cream: #FFF8E1; );
 }
 
 .summary li {
@@ -128,7 +317,7 @@ nav a.active {
 #buttons a {
   display: inline-block;
   background: linear-gradient(90deg, var(--gold) 70%, var(--coral) 100%);
-  color: var(--charcoal);
+  color: var( --cream: #FFF8E1; );
   font-family: 'Poppins', Arial, sans-serif;
   font-weight: 700;
   text-decoration: none;
@@ -434,7 +623,157 @@ footer {
   text-align: center;
 }
 
+/* Success overlay & form feedback styles (add to style.css) */
+
+.volunteer-form.invalid {
+  animation: shake 360ms ease-in-out;
+}
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+/* overlay container */
+#signup-success {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1200;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+/* visible state */
+#signup-success.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* card that contains the circle + text */
+#signup-success .success-card {
+  background: rgba(255,255,255,0.98);
+  border-radius: 12px;
+  padding: 20px 28px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  transform: translateY(10px);
+  animation: popIn 420ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* circle with check */
+.success-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(46,125,50,0.25);
+}
+
+/* SVG checkmark styling and animation */
+.checkmark {
+  width: 36px;
+  height: 36px;
+}
+.checkmark circle {
+  stroke: rgba(255,255,255,0.15);
+  stroke-width: 2;
+}
+.checkmark .check {
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: drawCheck 520ms ease 180ms forwards;
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+.success-text {
+  font-weight: 700;
+  color: #2E7D32;
+  font-family: 'Poppins', Arial, sans-serif;
+  letter-spacing: 0.2px;
+  font-size: 1.05rem;
+}
+
+/* subtle pop-in for card */
+@keyframes popIn {
+  from { transform: scale(.96) translateY(10px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* ensure mobile sizing */
+@media (max-width: 500px) {
+  #signup-success .success-card { padding: 16px; gap: 10px; }
+  .success-circle { width: 54px; height: 54px; }
+  .success-text { font-size: 0.98rem; }
+}
+
+/* Make all page body text areas use a white panel (like volunteer page) */
+
+/* Target main content sections so every page has a white readable panel */
+main > section,
+main > div.content-panel,
+.hero,
+.about-main,
+.programs-main,
+.volunteer-main,
+.donate-main,
+.impact-main {
+  background: #ffffff;                     /* white panel behind text */
+  color: var(--charcoal, #333333);        /* readable text color on white */
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+  max-width: 1100px;
+  margin: 1.6rem auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keep inner layout elements transparent so panels don't double up */
+.hero .hero-content,
+.about-main .about-row,
+.programs-main .program-row,
+.volunteer-main .volunteer-form,
+.donate-main .donate-form,
+.impact-main .impact-section {
+  background: transparent;
+}
+
+/* Ensure images inside panels size correctly */
+main > section img,
+.content-panel img,
+.about-img img,
+.program-img,
+.event-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Small-screen adjustments */
 @media (max-width: 700px) {
+  main > section,
+  .content-panel {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+  }
   #name h1 {
     font-size: 1.5rem;
   }
@@ -485,3 +824,5 @@ footer {
     max-width: 100%;
   }
 }
+
+/* Keep existing form success styles and other rules earlier in file */
